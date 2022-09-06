@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/user.routes");
+const { globalMiddleware } = require("./middlewares/globalMiddlewaters");
+
+app.use(globalMiddleware);
 
 app.get("/", (req, res) => {
   res.status(200).send("Welcome, use /users to get all users");
